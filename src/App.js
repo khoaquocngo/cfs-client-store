@@ -2,7 +2,7 @@ import './App.css';
 
 import { useState } from 'react';
 
-import { getImageUrl, uploadImage } from './datasource';
+import { store } from './datasource';
 
 function App() {
   const [imgUrl, setImgUrl] = useState(null);
@@ -13,7 +13,7 @@ function App() {
 
     const files = e.target[0].files;
     for (let index = 0; index < files.length; index++) {
-      const uploadTask = uploadImage(files[index]);
+      const uploadTask = store.uploadImage(files[index]);
 
       uploadTask.on(
         'state_changed',
@@ -27,7 +27,7 @@ function App() {
           alert(error);
         },
         () => {
-          getImageUrl(uploadTask.snapshot.ref).then(downloadURL => {
+          store.getImageUrl(uploadTask.snapshot.ref).then(downloadURL => {
             setImgUrl(downloadURL);
           });
         }
