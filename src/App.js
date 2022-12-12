@@ -2,37 +2,43 @@ import './App.css';
 
 import { useState } from 'react';
 
-import { store } from './datasource';
+import { database, store } from './datasource';
+const { ChristmasForm } = database;
 
 function App() {
   const [imgUrl, setImgUrl] = useState(null);
   const [progresspercent, setProgresspercent] = useState(0);
   const handleSubmit = e => {
     e.preventDefault();
-    if (!e.target[0]?.files[0]) return;
-
-    const files = e.target[0].files;
-    for (let index = 0; index < files.length; index++) {
-      const uploadTask = store.uploadImage(files[index]);
-
-      uploadTask.on(
-        'state_changed',
-        snapshot => {
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          setProgresspercent(progress);
-        },
-        error => {
-          alert(error);
-        },
-        () => {
-          store.getImageUrl(uploadTask.snapshot.ref).then(downloadURL => {
-            setImgUrl(downloadURL);
-          });
-        }
-      );
-    }
+    // if (!e.target[0]?.files[0]) return;
+    // const files = e.target[0].files;
+    // for (let index = 0; index < files.length; index++) {
+    //   const uploadTask = store.uploadImage(files[index]);
+    //   uploadTask.on(
+    //     'state_changed',
+    //     snapshot => {
+    //       const progress = Math.round(
+    //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+    //       );
+    //       setProgresspercent(progress);
+    //     },
+    //     error => {
+    //       alert(error);
+    //     },
+    //     () => {
+    //       store.getImageUrl(uploadTask.snapshot.ref).then(downloadURL => {
+    //         setImgUrl(downloadURL);
+    //       });
+    //     }
+    //   );
+    // }
+    ChristmasForm.createChristmasForm({
+      displayName: 'Ngo Minh Khoa',
+      contact: 'fb.com/khoaquocngo\nzalo 000000',
+      dream: 'ước có được người yêu để mua đông không lạnh',
+      message: 'Chúc bạn có môn giáng sinh an lành',
+      sex: 'Male',
+    });
   };
 
   return (
