@@ -5,5 +5,7 @@ export const CONFIG_THEME = {
   color: {
     blue500: '#b8d0f1',
     blue400: 'rgb(184,208,241,0.2)',
+    blue900: '#4371b7',
+    white: '#FFFFFF',
   },
 };
