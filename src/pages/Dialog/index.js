@@ -7,7 +7,7 @@ const DiaglogSuccess = ({ open, handleClose, uuid = 'SANTAOLALA' }) => {
   return (
     <Dialog
       open={open}
-      handleClose={handleClose}
+      onClose={handleClose}
       sx={{
         '& .MuiPaper-root': {
           maxWidth: 'unset',

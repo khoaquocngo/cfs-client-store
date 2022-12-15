@@ -71,6 +71,10 @@ const Christmas = () => {
   };
 
   const handleSubmit = async () => {
+    if (!name.trim() || !contact.trim() || !dream.trim() || !quotes.trim()) {
+      alert('Vui lòng điền đầy đủ thông tin!');
+      return;
+    }
     const uuid = await ChristmasForm.createChristmasForm({
       displayName: name,
       contact: contact,
@@ -82,6 +86,18 @@ const Christmas = () => {
     if (uuid?.uuid) {
       setUiid(uuid?.uuid);
       setOpenDialog(true);
+    }
+  };
+
+  const handleReset = () => {
+    setOpenDialog(false);
+    if (uuid) {
+      setUiid('');
+      setName('');
+      setContact('');
+      setDream('');
+      setQoutes('');
+      setSex(SEX.MALE);
     }
   };
 
@@ -160,7 +176,8 @@ const Christmas = () => {
             margin: '150px auto 300px',
             backgroundColor: CONFIG_THEME.color.blue400,
             height: '3px',
-            width: '200px',
+            width: '350px',
+            borderBottomWidth: 'inherit',
             '@media (max-width: 600px)': {
               margin: '100px auto',
             },
@@ -239,6 +256,7 @@ const Christmas = () => {
             backgroundColor: CONFIG_THEME.color.blue400,
             height: '3px',
             width: '200px',
+            borderBottomWidth: 'inherit',
             '@media (max-width: 600px)': {
               margin: '100px auto',
             },
@@ -286,6 +304,9 @@ const Christmas = () => {
                   padding: 0,
                   width: '100%',
                 },
+                '& .MuiFormControlLabel-label': {
+                  color: CONFIG_THEME.color.blue900,
+                },
                 '& .MuiFormControl-root': {
                   width: '100%',
                 },
@@ -296,8 +317,14 @@ const Christmas = () => {
                   backgroundColor: CONFIG_THEME.color.blue400,
                   color: CONFIG_THEME.color.blue900,
                   marginBottom: 2,
+                  '&:hover': {
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: CONFIG_THEME.color.blue400,
+                    },
+                  },
                 },
                 '& .MuiOutlinedInput-notchedOutline': {
+                  border: '2px solid',
                   borderColor: CONFIG_THEME.color.blue400,
                 },
                 '& textarea': {
@@ -322,7 +349,7 @@ const Christmas = () => {
             >
               <TextField
                 id='outlined-basic'
-                label='Họ và tên của kẻ cô độc giữa mùa đông lạnh giá ??'
+                label='Họ và tên của kẻ cô độc giữa mùa đông lạnh giá ?? *'
                 variant='outlined'
                 value={name}
                 onChange={e => handleChangeValue(e, 'name')}
@@ -351,7 +378,7 @@ const Christmas = () => {
               </RadioGroup>
               <TextareaAutosize
                 id='outlined-basic'
-                placeholder='Điều ước của ngươi là gì?'
+                placeholder='Điều ước của ngươi là gì? *'
                 variant='outlined'
                 sx={{ width: '100%' }}
                 minRows={4}
@@ -360,14 +387,14 @@ const Christmas = () => {
               />
               <TextField
                 id='outlined-basic'
-                label='In4 để HuySanta liên hệ, fb, zalo, sdt....'
+                label='In4 để HuySanta liên hệ, fb, zalo, sdt... *'
                 variant='outlined'
                 value={contact}
                 onChange={e => handleChangeValue(e, 'contact')}
               />
               <TextareaAutosize
                 id='outlined-basic'
-                placeholder='Lời chúc đến kẻ cô độc còn lại...'
+                placeholder='Lời chúc đến kẻ cô độc còn lại *'
                 variant='outlined'
                 sx={{ width: '100%' }}
                 minRows={10}
@@ -392,6 +419,7 @@ const Christmas = () => {
         sx={{
           background: `linear-gradient(to top, rgba(255,255,255,0.2) 10%, rgba(255,255,255,1)), url('/images/footer.jpg')`,
           backgroundSize: 'cover',
+          backgroundPosition: 'center',
           height: '500px',
           position: 'relative',
         }}
@@ -401,7 +429,7 @@ const Christmas = () => {
       <DiaglogSuccess
         open={!!openDialog}
         uuid={uuid}
-        handleClose={() => setOpenDialog(false)}
+        handleClose={handleReset}
       />
     </Box>
   );
