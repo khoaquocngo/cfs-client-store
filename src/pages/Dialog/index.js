@@ -55,7 +55,12 @@ const DiaglogSuccess = ({ open, handleClose, uuid = 'SANTAOLALA' }) => {
           }}
         >
           <Box
-            sx={{ fontWeight: 'bold', fontSize: '10px', fontStyle: 'italic' }}
+            sx={{
+              fontWeight: 'bold',
+              fontSize: '10px',
+              fontStyle: 'italic',
+              mb: 1,
+            }}
           >
             Gửi điều ước thành công !!
           </Box>
@@ -66,6 +71,8 @@ const DiaglogSuccess = ({ open, handleClose, uuid = 'SANTAOLALA' }) => {
               fontStyle: 'italic',
               '@media (max-width: 600px)': {
                 fontSize: '24px',
+                wordBreak: 'break-all',
+                textAlign: 'center',
               },
             }}
           >
