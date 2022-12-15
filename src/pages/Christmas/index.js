@@ -189,6 +189,7 @@ const Christmas = () => {
             position: 'relative',
             display: 'flex',
             justifyContent: 'space-between',
+            alignItems: 'center',
             '@media (max-width: 600px)': {
               flexDirection: 'column',
             },
@@ -200,6 +201,8 @@ const Christmas = () => {
               width: 'fit-content',
               padding: '3px',
               borderRadius: CONFIG_THEME.borderRadius,
+              display: 'flex',
+              height: 'fit-content',
               '@media (max-width: 600px)': {
                 '& img': {
                   width: '300px',
@@ -231,8 +234,12 @@ const Christmas = () => {
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{
+                delay: 0.1,
+                x: { duration: 1 },
+                default: { ease: 'linear' },
+              }}
             >
               <p>
                 Đây là đoạn giới thiệu tâm tình các kiểu ú ớ !! Đây là đoạn giới
@@ -358,7 +365,7 @@ const Christmas = () => {
                 row
                 sx={{ mb: 2 }}
                 value={sex}
-                onChange={e => setSex(e)}
+                onChange={e => setSex(e.target.value)}
               >
                 <FormControlLabel
                   value='Male'

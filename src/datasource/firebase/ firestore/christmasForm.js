@@ -32,7 +32,7 @@ export const createChristmasForm = async function (input = {}) {
     };
 
     const a = await (await addDoc(ChristmasForm, createData)).id;
-
+    console.log("===createData===", createData);
     console.log('aaaa', a);
 
     if (!a) {
