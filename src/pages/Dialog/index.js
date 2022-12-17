@@ -1,6 +1,6 @@
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { Box } from '@mui/system';
-
-const { Dialog } = require('@mui/material');
+const { Dialog, IconButton } = require('@mui/material');
 const { CONFIG_THEME } = require('config/constant');
 
 const DiaglogSuccess = ({ open, handleClose, uuid = 'SANTAOLALA' }) => {
@@ -76,7 +76,12 @@ const DiaglogSuccess = ({ open, handleClose, uuid = 'SANTAOLALA' }) => {
               },
             }}
           >
-            {uuid}
+            {uuid} &nbsp;
+            {/* <IconButton onClick={() => navigator.clipboard.writeText(uuid)}>
+              <ContentCopyIcon
+                sx={{ cursor: 'pointer', color: CONFIG_THEME.color.blue900 }}
+              />
+            </IconButton> */}
           </Box>
           <Box
             sx={{

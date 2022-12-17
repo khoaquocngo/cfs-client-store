@@ -1,6 +1,6 @@
 import './App.css';
 
-import { ThemeProvider } from '@mui/system';
+import { ThemeProvider } from '@mui/material/styles';
 import { theme } from 'config/theme';
 import Christmas from 'pages/Christmas';
 import { useEffect, useState } from 'react';
@@ -10,16 +10,14 @@ import { database, store } from './datasource';
 const { ChristmasForm } = database;
 
 function App() {
-  const [imgUrl, setImgUrl] = useState(null);
-  const [progresspercent, setProgresspercent] = useState(0);
 
   return (
     <BrowserRouter>
-      {/* <ThemeProvider theme={theme}> */}
-      <Routes>
-        <Route path='/' element={<Christmas />} />
-      </Routes>
-      {/* </ThemeProvider> */}
+      <ThemeProvider theme={theme}>
+        <Routes>
+          <Route path='/' element={<Christmas />} />
+        </Routes>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }
