@@ -187,24 +187,6 @@ const Christmas = () => {
         />
         <Box
           sx={{
-            minWidth: '100%',
-            color: CONFIG_THEME.color.blue900,
-          }}
-        >
-          <p>
-            Heyyyy, mọi người chỉ cần điền đầy đủ thông tin vào{' '}
-            <strong style={{ cursor: 'pointer' }} onClick={scrollForm}>
-              form bên dưới
-            </strong>{' '}
-            thì đã có thể gửi một lời nhắn đến bọn mình rồi nhaaaaa. Bọn mình sẽ
-            cố gắng kết nối bạn đến với người giấu tên hehee. <br /> Và đừng
-            quên để lại thông tin liên lạc nhé (cái đó là quan trọng nhất nè).
-            Sau đó bạn chỉ cần chờ đợi và cùng 1 bạn nào đó đón Giáng sinh thật
-            vui vui vui vui nhóoooo {`<33`}.
-          </p>
-        </Box>
-        <Box
-          sx={{
             position: 'relative',
             display: 'flex',
             justifyContent: 'space-between',
@@ -259,6 +241,17 @@ const Christmas = () => {
                 default: { ease: 'linear' },
               }}
             >
+              <p>
+                Heyyyy, mọi người chỉ cần điền đầy đủ thông tin vào{' '}
+                <strong style={{ cursor: 'pointer' }} onClick={scrollForm}>
+                  form bên dưới
+                </strong>{' '}
+                thì đã có thể gửi một lời nhắn đến bọn mình rồi nhaaaaa. Bọn
+                mình sẽ cố gắng kết nối bạn đến với người giấu tên hehee. <br />{' '}
+                Và đừng quên để lại thông tin liên lạc nhé (cái đó là quan trọng
+                nhất nè). Sau đó bạn chỉ cần chờ đợi và cùng 1 bạn nào đó đón
+                Giáng sinh thật vui vui vui vui nhóoooo {`<33`}.
+              </p>
               <p>
                 <strong>CÁCH THỨC HOẠT ĐỘNG:</strong>
               </p>
@@ -348,6 +341,7 @@ const Christmas = () => {
                 '@media (max-width: 600px)': {
                   padding: 0,
                   width: '100%',
+                  mt: 2,
                 },
                 '& .MuiFormControlLabel-label': {
                   color: CONFIG_THEME.color.blue900,
