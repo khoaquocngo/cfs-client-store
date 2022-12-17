@@ -75,6 +75,7 @@ const Christmas = () => {
     setLoading(true);
     if (!name.trim() || !contact.trim() || !dream.trim() || !quotes.trim()) {
       alert('Vui lòng điền đầy đủ thông tin!');
+      setLoading(false);
       return;
     }
     const uuid = await ChristmasForm.createChristmasForm({
