@@ -1,4 +1,3 @@
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import {
   Button,
   CircularProgress,
