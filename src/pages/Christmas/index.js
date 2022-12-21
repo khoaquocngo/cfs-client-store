@@ -243,29 +243,20 @@ const Christmas = () => {
               }}
             >
               <p>
-                Heyyyy, mọi người chỉ cần điền đầy đủ thông tin vào{' '}
-                <strong style={{ cursor: 'pointer' }} onClick={scrollForm}>
-                  form bên dưới
-                </strong>{' '}
-                thì đã có thể gửi một lời nhắn đến bọn mình rồi nhaaaaa. Bọn
-                mình sẽ cố gắng kết nối bạn đến với người giấu tên hehee. <br />{' '}
-                Và đừng quên để lại thông tin liên lạc nhé (cái đó là quan trọng
-                nhất nè). Sau đó bạn chỉ cần chờ đợi và cùng 1 bạn nào đó đón
-                Giáng sinh thật vui vui vui vui nhóoooo {`<33`}.
-              </p>
-              <p>
                 <strong>CÁCH THỨC HOẠT ĐỘNG:</strong>
               </p>
               <ul>
                 <li>
-                  Sau khi điền đầy đủ thông tin, các bạn sẽ nhận được một mã
-                  code. Và ngay lúc này, nhiệm vụ của các bạn chính là giữ mã
-                  code đấy lại và chờ 1 thông báo đến từ mã code đó nha. Đảm bảo
-                  sẽ rất bất ngờ luôn!{' '}
+                  Điền đầy đủ thông tin bên dưới (đặc biệt là thông tin liên
+                  lạc)
                 </li>
                 <li>
-                  Đến đêm 23/12, mã code ấy sẽ mang đến một bấtttttt ngờ cho bạn
-                  đó, rồi rồi, thấy hồi hợp chưa nè ... Hãy nhớ{' '}
+                  Sau khi điền đầy đủ thông tin, các bạn sẽ nhận được một mã
+                  code. Và ngay lúc này, nhiệm vụ của các bạn chính là giữ mã
+                  code đấy lại và chờ đợi thôi :)))))))
+                </li>
+                <li>
+                  Rồi rồi cảm thấy hồi hợp chưa nè... Hãy nhớ{' '}
                   <strong>quay lại vào đêm Noel (23/12) vào lúc 20h30 </strong>
                   sẽ có bất ngờ dành cho mọi người. Không bất ngờ cứ đến tìm
                   admin, admin sẽ làm bạn bất ngờ :))))))).{' '}
@@ -273,8 +264,8 @@ const Christmas = () => {
               </ul>
               <p>
                 Chúng mình hi vọng các bạn sẽ tham gia một cách vui vẻ nhất. Có
-                thể xem đây chính là món quà từ page gửi đến các bạn vào dịp
-                Giáng sinh năm nay. Chúc các bạn có một đêm Giáng sinh thật hạnh
+                thể xem đây chính là món quà từ CFS gửi đến các bạn vào dịp
+                Giáng Sinh năm nay. Chúc các bạn có một đêm Giáng sinh thật hạnh
                 phúc!
               </p>
               <p>

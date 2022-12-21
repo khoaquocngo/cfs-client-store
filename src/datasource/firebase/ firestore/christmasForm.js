@@ -24,8 +24,13 @@ function getFisrtUuid(name) {
 function getUuid(name, date) {
   const firstUUid = getFisrtUuid(name);
   const lastUuid = `${+date}`.slice(-5);
+  const uuid = firstUUid ? `${firstUUid}_${lastUuid}` : lastUuid;
 
-  return firstUUid ? `${firstUUid}_${lastUuid}` : lastUuid;
+  return uuid
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'D');
 }
 
 export const createChristmasForm = async function (input = {}) {
