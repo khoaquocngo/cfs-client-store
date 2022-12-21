@@ -61,3 +61,12 @@ export const createChristmasForm = async function (input = {}) {
     throw Error(error.message);
   }
 };
+
+export const getInfoByUuid = async function (uuid) {
+  return {
+    contact: 'fb: Phuong Uyen(Pu)',
+    displayName: 'Huỳnh Võ Phương Uyên',
+    dream: 'Muốn có 1 anh ngiu đẹp trai, đặt biệt:"đừng VÔ TÂM là được"',
+    message: 'chúc may mắn lần sau🤡🤡',
+  };
+};
