@@ -14,6 +14,7 @@ import { database } from 'datasource';
 import { motion } from 'framer-motion';
 import DiaglogSuccess from 'pages/Dialog';
 import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Snowfall from 'react-snowfall';
 const { ChristmasForm } = database;
 const SEX = {
@@ -33,6 +34,7 @@ const Christmas = () => {
   const [loading, setLoading] = useState(false);
   const introducetRef = useRef(null);
   const formRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleChangeValue = (e, field) => {
     const value = e.target.value;
@@ -114,6 +116,49 @@ const Christmas = () => {
         backgroundColor: 'rgba(246,249,255,0.2)',
       }}
     >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.2 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Box
+          sx={{
+            backgroundColor: CONFIG_THEME.color.blue900,
+            borderRadius: '50%',
+            width: '100px',
+            height: '100px',
+            boxShadow: '5px 10px 18px #888888',
+            position: 'absolute',
+            top: '280px',
+            right: '100px',
+            color: 'white',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 2,
+            textAlign: 'center',
+            fontStyle: 'italic',
+            border: 'none',
+            fontWeight: '500',
+            '&:hover': {
+              cursor: 'pointer',
+              backgroundColor: CONFIG_THEME.color.blue400,
+              color: CONFIG_THEME.color.blue900,
+            },
+            '@media (max-width: 600px)': {
+              width: '60px',
+              height: '60px',
+              p: 1,
+              top: '20px',
+              right: '20px',
+              fontSize: '12px',
+            },
+          }}
+          onClick={() => navigate('/merry-christmas')}
+        >
+          Có ai gửi thư cho bạn nè...!!
+        </Box>
+      </motion.div>
       <Snowfall />
       <Snowfall />
       <Box

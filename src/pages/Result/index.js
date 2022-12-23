@@ -7,7 +7,7 @@ import React from 'react';
 import Snowfall from 'react-snowfall';
 
 const Result = () => {
-  const [inp, setInp] = React.useState();
+  const [inp, setInp] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [result, setResult] = React.useState();
   const [success, setIsSuccess] = React.useState(false);
@@ -110,6 +110,7 @@ const Result = () => {
                   ml: 2,
                   borderWidth: '2px',
                   height: '100%',
+                  padding: '16px',
                   '@media (max-width: 600px)': {
                     padding: '10px',
                     height: 'fit-content',
@@ -221,6 +222,8 @@ const Result = () => {
                 mt: 8,
                 textAlign: 'right',
                 padding: '10px',
+                maxWidth: '600px',
+                mb: 10,
               }}
             >
               Cảm ơn bạn đã tham gia 1 event nho nhỏ của CVT Confession, hi vọng
