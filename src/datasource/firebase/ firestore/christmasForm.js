@@ -79,13 +79,7 @@ const formDetailByUui = async function (uuid) {
 };
 
 const getListFormByRefSex = async function (sex) {
-  const sexQuery = {
-    Male: 'Female',
-    Female: 'Male',
-    Other: 'Other',
-  }[sex];
-
-  const formQuery = await query(ChristmasForm, where('sex', '==', sexQuery));
+  const formQuery = await query(ChristmasForm);
   const { data } = await getDataFromSnapShot(formQuery);
 
   return data;
@@ -101,11 +95,25 @@ const getListformByRefcode = function (data = [], isRefcode = false) {
   return data.filter(x => !!x.refcode === isRefcode);
 };
 
-function getPairedObject(data) {
+function getPairedObject(data, sex) {
+  const sexQuery = {
+    Male: 'Female',
+    Female: 'Male',
+    Other: 'Other',
+  }[sex];
+
+  const listFormBySex = data.filter(x => {
+    return x.sex === sex && x.refcode;
+  });
+  const listRefCode = listFormBySex.map(x => x.refcode);
+  const listFormBySexQuery = data.filter(x => {
+    return x.sex === sexQuery && !listRefCode.includes(x.refcode);
+  });
+
   const pairedObjectList = getListformByRefcode(data);
 
   const pairedObjects = pairedObjectList.length
-    ? pairedObjectList
+    ? listFormBySexQuery
     : getListformByRefcode(data, true);
 
   return pairedObjects[getRandomInt(0, pairedObjects.length - 1)];
@@ -126,8 +134,8 @@ export const getInfoByUuid = async function (uuid) {
   if (form.refcode) {
     pairedObject = (await formDetailByUui(form.refcode)).data;
   } else {
-    const listFormByRefSex = await getListFormByRefSex(form.sex);
-    pairedObject = getPairedObject(listFormByRefSex);
+    const listFormByRefSex = await getListFormByRefSex();
+    pairedObject = getPairedObject(listFormByRefSex, form.sex);
 
     // Update refcode to form
     doc.docs.forEach(x => updateDoc(x.ref, { refcode: pairedObject.uuid }));

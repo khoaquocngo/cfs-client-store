@@ -202,8 +202,7 @@ const Result = () => {
                     Điều ước:
                   </span>
                   &nbsp;
-                  {`dsad dsad dsadsa dsadksaj kldjsakldjklasj dsajdlsajdl djsalkdjasljd dkjsakldjsakljd jdlksajdklasjd dsjadlkjaslkdj djsalkdjasl` ||
-                    result?.dream}
+                  {result?.dream}
                 </Box>
                 <Box>
                   <span style={{ color: CONFIG_THEME.color.blue900 }}>
